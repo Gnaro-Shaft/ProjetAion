@@ -16,7 +16,7 @@ export async function renderVideo(options: RenderOptions): Promise<string> {
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 
   const fps = 30;
-  const durationInFrames = Math.ceil((durationMs / 1000) * fps);
+  const durationInFrames = Math.ceil((durationMs / 1000) * fps) + 60; // +2s pour le son signature
   const remotionDir = path.resolve(config.paths.root, 'remotion');
 
   // Écrire les props dans un fichier temp pour éviter les problèmes de shell

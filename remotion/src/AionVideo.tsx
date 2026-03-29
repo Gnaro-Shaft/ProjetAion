@@ -6,6 +6,7 @@ import {
   Img,
   staticFile,
   interpolate,
+  Sequence,
 } from 'remotion';
 import { ThreeCanvas } from '@remotion/three';
 import { ParticleOrb } from './components/ParticleOrb';
@@ -158,7 +159,15 @@ export const AionVideo: React.FC<AionVideoProps> = ({
         AION
       </div>
 
-      {audioPath && <Audio src={staticFile(audioPath)} />}
+      {/* Son signature AION — début de la vidéo */}
+      <Audio src={staticFile('aion-signature.mp3')} volume={0.6} />
+
+      {/* Voix AION — démarre après le son signature (2s) */}
+      {audioPath && (
+        <Sequence from={60}>
+          <Audio src={staticFile(audioPath)} />
+        </Sequence>
+      )}
     </div>
   );
 };

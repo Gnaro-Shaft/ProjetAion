@@ -20,7 +20,7 @@ export const RemotionRoot: React.FC = () => {
         calculateMetadata={async ({ props }) => {
           if (props.durationMs) {
             return {
-              durationInFrames: Math.ceil((props.durationMs / 1000) * 30),
+              durationInFrames: Math.ceil((props.durationMs / 1000) * 30) + 60,
             };
           }
           return {};

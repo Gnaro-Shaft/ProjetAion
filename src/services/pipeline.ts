@@ -15,6 +15,8 @@ interface SubtitleSegment {
   words: Array<{ word: string; startFrame: number; endFrame: number }>;
 }
 
+const VOICE_DELAY_FRAMES = 60; // 2s de délai pour le son signature
+
 function buildSubtitlesFromTimings(wordTimings: WordTiming[], fps: number = 30): SubtitleSegment[] {
   const segments: SubtitleSegment[] = [];
   const wordsPerSegment = 5;
@@ -24,14 +26,14 @@ function buildSubtitlesFromTimings(wordTimings: WordTiming[], fps: number = 30):
 
     const words = group.map((wt) => ({
       word: wt.word,
-      startFrame: Math.round((wt.startMs / 1000) * fps),
-      endFrame: Math.round((wt.endMs / 1000) * fps),
+      startFrame: Math.round((wt.startMs / 1000) * fps) + VOICE_DELAY_FRAMES,
+      endFrame: Math.round((wt.endMs / 1000) * fps) + VOICE_DELAY_FRAMES,
     }));
 
     segments.push({
       text: group.map((wt) => wt.word).join(' '),
       startFrame: words[0].startFrame,
-      endFrame: words[words.length - 1].endFrame + Math.round(fps * 0.3), // 300ms de marge
+      endFrame: words[words.length - 1].endFrame + Math.round(fps * 0.3),
       words,
     });
   }
