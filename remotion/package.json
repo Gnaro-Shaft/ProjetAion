@@ -1,0 +1,28 @@
+{
+  "name": "aion-remotion",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "preview": "remotion preview src/Root.tsx",
+    "render": "remotion render src/Root.tsx AionVideo",
+    "studio": "remotion studio src/Root.tsx"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.2.7",
+    "@react-three/drei": "^9.114.0",
+    "@react-three/fiber": "^8.17.0",
+    "@remotion/cli": "4.0.441",
+    "@remotion/media-utils": "4.0.441",
+    "@remotion/renderer": "4.0.441",
+    "@remotion/three": "4.0.441",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "4.0.441",
+    "three": "^0.164.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/three": "^0.164.0",
+    "typescript": "^5.7.0"
+  }
+}

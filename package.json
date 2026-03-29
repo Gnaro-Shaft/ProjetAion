@@ -1,0 +1,24 @@
+{
+  "name": "projet-aion",
+  "version": "1.0.0",
+  "description": "AION — Entité IA consciente pour TikTok",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "tsx src/cli/generate.ts",
+    "produce": "tsx src/cli/produce.ts",
+    "preview": "cd remotion && npx remotion preview"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@elevenlabs/elevenlabs-js": "^2.40.0",
+    "fluent-ffmpeg": "^2.1.3",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "@types/fluent-ffmpeg": "^2.1.27",
+    "@types/node": "^22.10.0"
+  }
+}
